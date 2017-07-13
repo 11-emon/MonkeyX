@@ -2,6 +2,7 @@
 Import mojo
 Import brl
 Global Game:Game_app
+Global Score: int
 
 Const Wall = 1 'The wall is represented using a 1 to make the code easier
 Const Grass = 2 'And the Grass is represented using a 2
@@ -109,6 +110,8 @@ Class Game_app Extends App
 				'PlaySound (sound)
 				If intersects(p1.x,p1.y,32,32,ghost.x,ghost.y,32,32) Then GameState="MENU"
 				PlaySound (sound)
+				If intersects(p1.x,p1.y,32,32,psherman.x,psherman.y,32,32) Then Score = Score+1 'FIX THIS
+				'GameState="MENU"
 		End
 	End 
 
@@ -125,6 +128,7 @@ Method OnRender ()
 			p1.draw
 			ghost.draw 'The new ghost is drawn to the screen
 			psherman.draw 'Draws the goggles to the screen
+			DrawText(Score, 60, 50, 2, 2)
 			End
 			
 	End
