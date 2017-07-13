@@ -31,7 +31,7 @@ Class Game_app Extends App
 		menu = LoadImage ("menu.png")
 		sound = LoadSound ("mine.ogg")
 		
-	
+'TESTING
 		'PlayMusic(".ogg")
 		maze = New Level
 		maze.load()
@@ -183,6 +183,8 @@ Class Level
 	Return collision_result 
 End
 End
+
+'TESTING 
 
 Class Character
 		Field sprite:Image
