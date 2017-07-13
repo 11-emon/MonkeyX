@@ -1,4 +1,3 @@
-'TESTING GITHUB
 'Libraries and globals
 Import mojo
 Import brl
@@ -24,6 +23,7 @@ Class Game_app Extends App
 	Field characters:Image 'The image of all the characters from the sprite map
 	Field p1:Character 'p1 is the player object
 	Field ghost:Character
+	Field psherman:Character
 
 	Method OnCreate ()
 	'All the initialisation for the game goes here:
@@ -31,7 +31,7 @@ Class Game_app Extends App
 		menu = LoadImage ("menu.png")
 		sound = LoadSound ("mine.ogg")
 		
-'TESTING
+	
 		'PlayMusic(".ogg")
 		maze = New Level
 		maze.load()
@@ -42,6 +42,9 @@ Class Game_app Extends App
 		
 		ghost = New Character
 		ghost.sprite = characters.GrabImage(32,0,32,32)'The ghost is defined
+		
+		psherman = New Character
+		psherman.sprite = characters.GrabImage(64,0,32,32)'The goggles are defined
 	
 		
 	End
@@ -61,6 +64,9 @@ Class Game_app Extends App
 				ghost.x = 0 'The attributes are set for the ghost sprite
 				ghost.y = 0
 				ghost.speed = 2
+				
+				psherman.x=400
+				psherman.y=125
 				'PlaySound (sound)
 				
 				GameState="PLAYING"
@@ -118,6 +124,7 @@ Method OnRender ()
 			maze.draw
 			p1.draw
 			ghost.draw 'The new ghost is drawn to the screen
+			psherman.draw 'Draws the goggles to the screen
 			End
 			
 	End
@@ -183,8 +190,6 @@ Class Level
 	Return collision_result 
 End
 End
-
-'TESTING 
 
 Class Character
 		Field sprite:Image
